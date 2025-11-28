@@ -8,8 +8,8 @@ also refer to https://github.com/k4rtik/uchicago-poster
 + Visualization adjusted based on [天津大学视觉形象识别系统(TUVI)手册.pdf](https://www.tju.edu.cn/tdgk/tdbs.htm)
 
 <p align="center">
-<a href="https://raw.githubusercontent.com/aalennku/gemini-tju/main/poster.pdf">
-<img src="https://raw.githubusercontent.com/aalennku/gemini-tju/main/poster.png">
+<a href="https://raw.githubusercontent.com/aalennku/gemini-tju/master/poster.pdf">
+<img src="https://raw.githubusercontent.com/aalennku/gemini-tju/master/poster.png">
 </a>
 </p>
 
