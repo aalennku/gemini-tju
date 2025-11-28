@@ -31,10 +31,5 @@ also refer to https://github.com/k4rtik/uchicago-poster
    line in `poster.tex`, and theme the poster to your liking (optional, but
    highly recommended)
 
-1. Run `make` to build your poster
-
-## FAQ
-
-See the [FAQ] in the Wiki for answers to frequently asked questions such as how
-to add an institution logo to the poster.
+1. Run `bibtex` and `xelatex` to compile your poster
 
