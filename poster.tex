@@ -1,6 +1,9 @@
-% Unofficial University of Cambridge Poster Template
-% https://github.com/andiac/gemini-cam
-% a fork of https://github.com/anishathalye/gemini
+% !TeX program = xelatex
+
+% Unofficial University of Tianjin University Poster Template
+% https://github.com/aalennku/gemini-tju
+% a fork of https://github.com/andiac/gemini-cam
+% also refer to https://github.com/anishathalye/gemini
 % also refer to https://github.com/k4rtik/uchicago-poster
 
 \documentclass[final]{beamer}
@@ -11,9 +14,10 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[size=custom,width=120,height=72,scale=1.0]{beamerposter}
+% \usepackage[size=custom,width=120,height=72,scale=1.0]{beamerposter}
+\usepackage[orientation=portrait,size=a0,scale=1.0]{beamerposter}
 \usetheme{gemini}
-\usecolortheme{cam}
+\usecolortheme{tju}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage[numbers]{natbib}
@@ -21,6 +25,18 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.14}
 \usepackage{anyfontsize}
+
+% ====================
+% 中文设置 (核心修改)
+% ====================
+% 1. 使用 fontset=mac 调用macos系统字体
+% 2. 使用 fontset=windows 调用windows系统字体？存疑
+\usepackage[UTF8, fontset=mac]{ctex}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+% 1. (可选但推荐) 海报通常使用无衬线字体 (黑体/苹方)，
+%    这行代码强制中文默认使用无衬线体，匹配海报的英文风格。
+\renewcommand{\CJKfamilydefault}{\CJKsfdefault}
 
 % ====================
 % Lengths
@@ -31,7 +47,7 @@
 \newlength{\sepwidth}
 \newlength{\colwidth}
 \setlength{\sepwidth}{0.025\paperwidth}
-\setlength{\colwidth}{0.3\paperwidth}
+\setlength{\colwidth}{0.46\paperwidth}
 
 \newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 
@@ -39,20 +55,22 @@
 % Title
 % ====================
 
-\title{Some fancy title: followed by some more text}
+\title{Blooming Is All You Need}
 
-\author{Alyssa P. Hacker \inst{1} \and Ben Bitdiddle \inst{2} \and Lem E. Tweakit \inst{2}}
+\author{Xiaotang Hai (海小棠)\inst{1}\inst{2} \and Xiaoguo Tang (棠小果)\inst{1}}
 
-\institute[shortinst]{\inst{1} Some Institute \samelineand \inst{2} Another Institute}
+\institute[shortinst]{
+  \inst{1} School of Pink Engineering, Tianjin University 
+  \samelineand \inst{2} School of Sour Science, Tianjin University}
 
 % ====================
 % Footer (optional)
 % ====================
 
 \footercontent{
-  \href{https://www.example.com}{https://www.example.com} \hfill
-  ABC Conference 2025, New York --- XYZ-1234 \hfill
-  \href{mailto:alyssa.p.hacker@example.com}{alyssa.p.hacker@example.com}}
+  \href{https://icpe.cc/conference/icpe/icpe-25/}{https://icpe.cc/conference/icpe/icpe-25/} \hfill
+  The 1st International Conference on Pink Engineering, Mar 31 - Apr 6, 2025 | Tianjin \hfill
+  \href{mailto:xiaotang.hai@tju.edu.cn}{xiaotang.hai@tju.edu.cn}}
 % (can be left out to remove footer)
 
 % ====================
@@ -60,8 +78,8 @@
 % ====================
 
 % use this to include logos on the left and/or right side of the header:
-% \logoright{\includegraphics[height=7cm]{logo1.pdf}}
-% \logoleft{\includegraphics[height=7cm]{logo2.pdf}}
+\logoright{\includegraphics[height=6.7cm]{./logos/ICPE_white.eps}}
+\logoleft{\includegraphics[height=7cm]{./logos/tju_logo_bai.eps}}
 
 % ====================
 % Body
@@ -69,14 +87,12 @@
 
 \begin{document}
 
-% Refer to https://github.com/k4rtik/uchicago-poster
-% logo: https://www.cam.ac.uk/brand-resources/about-the-logo/logo-downloads
 \addtobeamertemplate{headline}{}
 {
-    \begin{tikzpicture}[remember picture,overlay]
-      \node [anchor=north west, inner sep=3cm] at ([xshift=0.0cm,yshift=1.0cm]current page.north west)
-      {\includegraphics[height=4.5cm]{logos/cambridge-reversed-color-logo.eps}}; 
-    \end{tikzpicture}
+    % \begin{tikzpicture}[remember picture,overlay]
+    %   \node [anchor=north west, inner sep=2cm] at ([xshift=0.0cm,yshift=1.0cm]current page.north west)
+    %   {\includegraphics[height=6.5cm]{logos/tju_logo_bai.eps}}; 
+    % \end{tikzpicture}
 }
 
 \begin{frame}[t]
@@ -147,12 +163,6 @@
 
   \end{alertblock}
 
-\end{column}
-
-\separatorcolumn
-
-\begin{column}{\colwidth}
-
   \begin{block}{A block containing an enumerated list}
 
     Vivamus congue volutpat elit non semper. Praesent molestie nec erat ac
@@ -184,39 +194,38 @@
     molestie ut orci nec malesuada. Sed ultricies feugiat est fringilla
     posuere.
 
-\vspace{1em}
+    \vspace{1em}
 
-\begin{columns}
-\begin{column}{0.4\textwidth}
-\begin{center}
-      \begin{figure}
-      \begin{tikzpicture}
-        \begin{axis}[
-            scale only axis,
-            no markers,
-            domain=0:2*pi,
-            samples=100,
-            axis lines=center,
-            axis line style={-},
-            ticks=none]
-          \addplot[red] {sin(deg(x))};
-          \addplot[blue] {cos(deg(x))};
-        \end{axis}
-      \end{tikzpicture}
-      \caption{Another figure caption.}
-    \end{figure}
-   \end{center}
-\end{column}
-\begin{column}{0.6\textwidth}  %%<--- here
-\justify
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel dapibus erat. Morbi quis leo congue, lobortis augue bibendum, malesuada neque. Duis ullamcorper quis orci sed consequat. Nam pellentesque ullamcorper tempor. Duis eget nulla blandit, vulputate orci vitae, ullamcorper ligula. Mauris a urna ac massa dignissim scelerisque sed et augue. Donec eget urna vitae neque elementum pellentesque et eget enim. Praesent a fermentum nibh. Nullam eu nibh neque. 
-\end{column}
-\end{columns}
-
+    \begin{columns}
+    \begin{column}{0.4\textwidth}
+    \begin{center}
+          \begin{figure}
+          \begin{tikzpicture}
+            \begin{axis}[
+                scale only axis,
+                no markers,
+                domain=0:2*pi,
+                samples=100,
+                axis lines=center,
+                axis line style={-},
+                ticks=none]
+              \addplot[red] {sin(deg(x))};
+              \addplot[blue] {cos(deg(x))};
+            \end{axis}
+          \end{tikzpicture}
+          \caption{Another figure caption.}
+        \end{figure}
+      \end{center}
+    \end{column}
+    \begin{column}{0.6\textwidth}  %%<--- here
+    \justify
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel dapibus erat. Morbi quis leo congue, lobortis augue bibendum, malesuada neque. Duis ullamcorper quis orci sed consequat. Nam pellentesque ullamcorper tempor. Duis eget nulla blandit, vulputate orci vitae, ullamcorper ligula. Mauris a urna ac massa dignissim scelerisque sed et augue. Donec eget urna vitae neque elementum pellentesque et eget enim. Praesent a fermentum nibh. Nullam eu nibh neque. 
+    \end{column}
+    \end{columns}
 
   \end{block}
 
-  \begin{block}{Nam cursus consequat egestas}
+    \begin{block}{Nam cursus consequat egestas}
 
     Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
     lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
@@ -225,11 +234,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel dapibus era
     ipsum. Morbi commodo condimentum massa, \textit{tempus venenatis} massa
     hendrerit quis. Maecenas sed porta est. Praesent mollis interdum lectus,
     sit amet sollicitudin risus tincidunt non.
-
-    Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
-    consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
-    mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
-    ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
 
     \begin{itemize}
       \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
@@ -318,7 +322,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel dapibus era
     libero at, gravida ante. Phasellus at felis eu neque suscipit suscipit.
     Integer ullamcorper, dui nec pretium ornare, urna dolor consequat libero,
     in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
-    auctor urna non, tempus sem.
+    auctor urna non, tempus sem~\cite{hai1895peiyang}.
 
   \end{block}
 
@@ -332,6 +336,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel dapibus era
 \end{column}
 
 \separatorcolumn
+
 \end{columns}
 \end{frame}
 
